@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ankit Vishwakarma - Personal Website</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+  body {
+    background: linear-gradient(120deg, #15172b 0%, #283e51 100%);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: #f0f8ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  header {
+    width: 100%;
+    background: rgba(15,17,54,0.88);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.33);
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    padding: 1.15rem 0 1.15rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(7px);
+    animation: headerFade 1.2s cubic-bezier(.55,.06,.68,.19) both;
+  }
+  @keyframes headerFade {
+    from {opacity: 0;top: -40px;}
+    to {opacity: 1; top: 0;}
+  }
+  header h1 {
+    color: #d2e9ff;
+    letter-spacing: 1.8px;
+    font-size: 2.05rem;
+    font-weight: 700;
+    text-shadow: 0 3px 14px rgba(0,90,255,0.09);
+  }
+  nav {
+    margin-left: auto;
+    margin-right: 2rem;
+  }
+  nav a {
+    color: #90e0ff;
+    margin: 0 1.18rem;
+    font-size: 1.11rem;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.2s;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -6px;
+    left: 0;
+    border-radius: 3px;
+    background: linear-gradient(90deg,#69eacb 0%, #eaccf8 50%, #6654f1 100%);
+    transition: width 0.35s;
+  }
+  nav a:hover::after {width: 90%;}
+  nav a:hover {color: #ffd6e0;}
+
+  .content-section {
+    max-width: 500px;
+    margin: 2.5rem auto 3.2rem auto;
+    padding: 2.5rem 2rem 2rem 2rem;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.10);
+    box-shadow: 0 12px 45px 0 rgba(60,140,255,0.15),0 5px 28px #283e5116 inset;
+    backdrop-filter: blur(12px);
+    transition: transform .4s cubic-bezier(.4,2,.15,.99), box-shadow .27s;
+    animation: fadeInCard 1.13s cubic-bezier(.48,.11,.61,.89) both;
+    position: relative;
+  }
+  @keyframes fadeInCard {
+    from {opacity:0;transform:translateY(70px) scale(0.97);}
+    to {opacity:1;transform:translateY(0) scale(1);}
+  }
+  .pfp-wrap {
+    margin: -120px auto 32px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: transform .33s cubic-bezier(.61,-0.11,.73,.57); 
+  }
+  .pfp-card {
+    background: linear-gradient(135deg, #54e6ff -10%, #0c324c 90%);
+    border-radius: 50%;
+    box-shadow: 0 10px 64px #34b3e651, 0 1px 10px #00fdfa33 inset;
+    width: 170px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.4s, transform 0.4s;
+    position: relative;
+    animation: pfpPop 0.82s cubic-bezier(.48,.11,.61,.89) both;
+    transform-style: preserve-3d;
+    border: 7px solid #fff3;
+    overflow: visible;
+  }
+  @keyframes pfpPop {
+    from {opacity: 0;transform: scale(0.60) rotateY(24deg);}
+    to {opacity: 1;transform: scale(1) rotateY(0);}
+  }
+  .pfp-card:hover {
+    transform: scale(1.08) rotateY(-18deg) rotateX(2deg);
+    box-shadow: 0 22px 48px #41fffa85,0 10px 40px #b2eafd99;
+  }
+  .pfp-card img {
+    width: 143px;
+    height: 143px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 32px 0 #112b3428;
+    border: 4.5px solid #fff8;
+    background: #0a1774;
+    display: block;
+    animation: fadeImg 1.15s cubic-bezier(.44,.13,.66,.81) both;
+    transition: box-shadow 0.3s, filter 0.26s;
+  }
+  @keyframes fadeImg {
+    from {opacity: 0; filter: blur(11px);}
+    to {opacity: 1; filter: blur(0);}
+  }
+  h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #94c8f8;
+    letter-spacing: 1px;
+    margin-bottom: .55rem;
+    font-weight: 600;
+  }
+  .desc {
+    text-align: center;
+    margin-bottom: 1.3rem;
+    color: #e4eeff;
+    font-weight: 400;
+    font-size: 1.11rem;
+    line-height: 1.72;
+    text-shadow: 0 1.5px 9px #3a54ff21;
+    animation: fadeUp 1.2s cubic-bezier(.55,.06,.68,.19) .19s both;
+  }
+  @keyframes fadeUp {
+    from {opacity:.06;transform:translateY(32px);}
+    to {opacity:1;transform:translateY(0);}
+  }
+  .contact-section {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  .email-link {
+    font-size: 1.06rem;
+    color: #aff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color .3s;
+  }
+  .email-link:hover {
+    color: #f7aaff;
+    text-decoration: underline;
+  }
+  form input, form textarea {
+    width: 100%;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 0.95rem;
+    background: rgba(22,26,45, 0.18);
+    color: #eaf6fe;
+    font-family: inherit;
+    box-shadow: 0 1px 8px #4adcf81c inset;
+    transition: box-shadow .22s;
+  }
+  form input:focus, form textarea:focus {
+    box-shadow: 0 0 11px #71eaff;
+    outline: none;
+    background: rgba(20,24,44, 0.22);
+  }
+  form button {
+    width: 100%;
+    background: linear-gradient(90deg, #667eea, #41ffe3 90%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.13rem;
+    border: none;
+    border-radius: 6px;
+    padding: 1.05rem;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 14px #7750e966;
+    cursor: pointer;
+    transition: background .3s, box-shadow .20s;
+  }
+  form button:hover {
+    background: linear-gradient(90deg, #41ffe3, #667eea 75%);
+    box-shadow: 0 8px 16px #e4fdfa55;
+  }
+  footer {
+    width: 100%;
+    text-align: center;
+    background: rgba(15,17,54,0.97);
+    color: #99e4ff;
+    padding: 1.2rem 0 .8rem 0;
+    font-size: 1.01rem;
+    font-weight: 600;
+    letter-spacing: .7px;
+    border-radius: 0 0 16px 16px;
+    text-shadow: 0 1.5px 9px #2e8baf22;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Ankit Vishwakarma</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#photo">Photo</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="content-section" id="home">
+  <div class="pfp-wrap" id="photo">
+    <div class="pfp-card">
+      <img src="20250224_201337.jpg" alt="Ankit Vishwakarma" loading="eager" />
+    </div>
+  </div>
+  <h2>Welcome</h2>
+  <div class="desc">
+    Hi! I'm Ankit Vishwakarma.<br>
+    Welcome to my personal website where you can know more about me, view my photo, and contact me easily!
+  </div>
+</section>
+
+<section class="content-section" id="about">
+  <h2>About Me</h2>
+  <div class="desc">
+    I am passionate about technology, creativity, and learning new things.<br>
+    I enjoy sharing my experiences, making new friends, and working on interesting projects.<br>
+    If you would like to connect, don't hesitate to reach out!
+  </div>
+</section>
+
+<section class="content-section" id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact-section">
+    Email: <a class="email-link" href="mailto:ankit.v8606@gmail.com">ankit.v8606@gmail.com</a>
+  </div>
+  <form onsubmit="alert('Thank you for reaching out, I will connect soon!'); return false;">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 Ankit Vishwakarma. All rights reserved.
+</footer>
+</body>
+</html>
